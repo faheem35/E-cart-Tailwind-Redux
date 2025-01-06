@@ -867,7 +867,9 @@
                1)Render the entire react app inside "BrowserRouter" component of react-router-dom library, provide this in main.jsx
                2)Inorder to setup path for component, make each component must be inside "Routes" component of react-router-dom library, provide this step inside APP.jsx file.
                3) To setup path for an component, use "Route" component of react-router-dom library. Route component has attributes like "path" and "element" inorder to setup routes for component. All Route component must be inside Routes componnet.
-
+            
+            -Dynamic Routing: we can setup a dynamic or changing value in a url along : symbol, so react app will understand the value along with a: is dynamic part of this url.
+            -To setup page not found url as path *, its path must be setup ath the end of .....
       15) Higher order components(HOC): they are componnets whose props argumentt will give another componnet. eg: Route componnet.        
 
       16) Axios call in react: 
@@ -949,6 +951,12 @@
              -createSlice(): used to combine action and reducer in a single file.
                -steps to use slice for react app
                 -create a js file for defining slice
+
+             -craeteAsyncThunk(): used to make asynchronous call in an action in redux . it acepts 2 arguments, fiest action type string("slice-name/action-name"), 2nd argument is a callback fn it can return a promise. its output can be 3 types:
+                -pending state
+                -fullfileed state
+                -rejected state
+              "extraReducers" in slice can handle promise return action. becauseit has define different cases to update slice state, based on promise output.   
 
    4) Hooks used in component for managing state using redux
             -useSelector(state=>state.reducer_name): used to select state from store in a component.
