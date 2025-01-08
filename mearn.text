@@ -853,8 +853,10 @@
                 3)useRef(initial value):its a react hook that lets you refernce a value that's not needed for rendering. Initial value is optional, it returns an object "current" key.[also it has access to DOM elements.
 
              -custom Hooks  
-             -------------
-             create js file to define a specific task or function for a special task. Export the function from that file. function name must start with 'use' keyword. 
+              create js file to define a specific task or function for a special task. Export the function from that file. function name must start with 'use' keyword. 
+             -useSelector()-  hook used to select state from a redux store
+             -useDispatch()- hook used to dispatch action from component
+             -useParams()- hook will return dynamic value of route associated with a component
 
       13)Form Handling in react: There are 2ways to manange data inside the form by a componnet.
           -controlled components:  are components which store data inside its own state
