@@ -28,6 +28,7 @@ const productSlice= createSlice({
                               state.loading=false
                               state.errorMsg=""
                               
+                              
                     })
                     builder.addCase(fetchProducts.pending,(state,apiResult)=>{
                               state.allProducts=[]

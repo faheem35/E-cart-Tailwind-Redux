@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../componnets/Header'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToWishlist } from '../redux/slices/wishlistSlice'
 
 const View = () => {
+
+  const dispatch=useDispatch() //to perform actions
+  const userwishlist= useSelector(state=>state.wishlistReducer)  //to select specific state
+
   const [product,setproduct]=useState({})
 
   const {id}= useParams()  //getting dynamic data using useParams hook
@@ -21,6 +26,17 @@ const View = () => {
     
   },[])
 
+  const handleWishlist=()=>{
+    const existingProduct= userwishlist?.find(item=>item?.id==id)
+    if(existingProduct){
+
+      alert("Product already in your Wishlist!!!")
+    }else{
+     dispatch(addToWishlist(product))
+    }
+
+  }
+
   console.log(product);
   
   
@@ -34,7 +50,7 @@ const View = () => {
                    <div>
                      <div className='flex flex-col items-center'> <img width={'450px'} height={'200px'} src={product?.thumbnail} alt="" /></div>
                       <div className='flex justify-center mt-5 '>
-                                                    <button className='bg-blue-600 text-white p-2 me-5'>Add to wishlist</button>
+                                                    <button onClick={handleWishlist} className='bg-blue-600 text-white p-2 me-5'>Add to wishlist</button>
                                                     <button className='bg-green-600 text-white p-2 ms-5'>Add to Cart</button>
   
                                           </div>
