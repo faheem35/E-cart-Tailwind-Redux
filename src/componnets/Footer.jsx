@@ -47,7 +47,7 @@ const Footer = () => {
 
 
       </div>
-      <p className='text-center mt-3'>Copyright ©Media Player Inc. All rights reserved.</p>
+      <p className='text-center mt-3'>Copyright ©E-Cart Inc. All rights reserved.</p>
     </div>
   )
 }
