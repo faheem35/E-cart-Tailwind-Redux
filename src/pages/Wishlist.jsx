@@ -27,7 +27,7 @@ const Wishlist = () => {
         alert("Product added to Cart")
        }
    
-     }  //some issues here wishlist count is not decrementing
+     }  
 
   return (
     <>

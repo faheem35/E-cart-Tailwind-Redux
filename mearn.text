@@ -742,7 +742,7 @@
      .) In JSX have to use "camel case" to write JSX contents. eg:fontSize
      .)Every JSX code must have a closing tag. IF a tag has content, then:
                               <startingTag> content </endingTag>
-                     IF a tag has no content, then:
+                     IF a tag has no content, then: 
                               <startingTag>  </endingTag>
                      or we can use self closing tags(<startingTag />)         
      .)Instaed of attribute "class" use "className" in JSX

@@ -68,7 +68,7 @@ const View = () => {
                      <div className='flex flex-col items-center'> <img width={'450px'} height={'200px'} src={product?.thumbnail} alt="" /></div>
                       <div className='flex justify-center mt-5 '>
                                                     <button onClick={handleWishlist} className='bg-blue-600 text-white p-2 me-5'>Add to wishlist</button>
-                                                    <button onClick={handleCart} className='bg-green-600 text-white p-2 ms-5'>Add to Cart</button>
+                                                    <button onClick= {handleCart} className='bg-green-600 text-white p-2 ms-5'>Add to Cart</button>
   
                                           </div>
                    </div>

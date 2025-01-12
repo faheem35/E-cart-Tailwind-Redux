@@ -16,15 +16,20 @@ const productSlice= createSlice({
           name:"products",  //state name
           initialState:{
                     allProducts:[],
+                    dummyAllProducts:[], // for getting non-updated products while searching.
                     loading:false,
                     errorMsg:""
           },
           reducers:{
+                    searchProdut: (state,actionByHeader)=>{
+                              state.allProducts=state.dummyAllProducts.filter(item=>item.title.toLowerCase().includes(actionByHeader.payload))
+                    }
 
           }, 
           extraReducers:(builder)=>{      // to save states from api call 
                     builder.addCase(fetchProducts.fulfilled,(state,apiResult)=>{
                               state.allProducts=apiResult.payload
+                              state.dummyAllProducts=apiResult.payload
                               state.loading=false
                               state.errorMsg=""
                               
@@ -32,12 +37,14 @@ const productSlice= createSlice({
                     })
                     builder.addCase(fetchProducts.pending,(state,apiResult)=>{
                               state.allProducts=[]
+                              state.dummyAllProducts=[]
                               state.loading=true
                               state.errorMsg=""
                               
                     })
                     builder.addCase(fetchProducts.rejected,(state,apiResult)=>{
                               state.allProducts=[]
+                              state.dummyAllProducts=[]
                               state.loading=false
                               state.errorMsg="API call failed"
                               
@@ -47,4 +54,5 @@ const productSlice= createSlice({
           }
 })
 
+export const {searchProdut} = productSlice.actions
 export default productSlice.reducer
