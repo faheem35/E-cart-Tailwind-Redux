@@ -44,6 +44,7 @@ const cartSlice = createSlice({
     },
     emptyCart: (state) => {
       return state = []
+    
     }
 
 

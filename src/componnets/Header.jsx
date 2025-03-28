@@ -1,28 +1,75 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { searchProdut } from '../redux/slices/productSlice'
+// import React from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { Link } from 'react-router-dom'
+// import { searchProdut } from '../redux/slices/productSlice'
 
-const Header = ({insideHome}) => {
-  const dispatch=useDispatch()
-  const userCart= useSelector(state=>state.cartReducer)
+// const Header = ({insideHome}) => {
+//   const dispatch=useDispatch()
+//   const userCart= useSelector(state=>state.cartReducer)
 
- const userWishlist= useSelector(state=>state.wishlistReducer)
+//  const userWishlist= useSelector(state=>state.wishlistReducer)
+//   return (
+//     <nav className=' bg-violet-600 w-full p-5 text-white  '>
+//           <Link className='text-2xl font-bold' to={'/'}> <i className='fa-solid fa-truck-fast me-1'></i>E-Cart</Link>
+
+//           <ul className='flex-1 text-right'>
+//                  {insideHome &&  <li className='list-none inline-block px-5' ><input onChange={(e)=>dispatch(searchProdut(e.target.value.toLowerCase()))}  type="text"  style={{width:'300px'}} className='rounded p-2 text-black' placeholder='search your products here'/></li>
+
+//                    }
+
+//                     <li  className='list-none inline-block px-5' ><Link to={'/wishlist'}><i className="fa-solid fa-heart text-red-600"></i>Wishlist <span className='bg-black text-white rounded p-1'>{userWishlist?.length}</span></Link></li>
+
+//                     <li  className='list-none inline-block px-5' ><Link to={'/cart'}><i className="fa-solid fa-cart-plus text-green-600"></i>Cart <span className='bg-black text-white rounded p-1'>{userCart?.length}</span></Link></li>
+//           </ul>
+//     </nav>
+//   )
+// }
+
+// export default Header
+
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { searchProdut } from '../redux/slices/productSlice';
+
+const Header = ({ insideHome }) => {
+  const dispatch = useDispatch();
+  const userCart = useSelector((state) => state.cartReducer);
+  const userWishlist = useSelector((state) => state.wishlistReducer);
+
   return (
-    <nav className=' bg-violet-600 w-full p-5 text-white  '>
-          <Link className='text-2xl font-bold' to={'/'}> <i className='fa-solid fa-truck-fast me-1'></i>E-Cart</Link>
+    <nav className=' w-full p-4 text-white flex items-center justify-between' style={{background: "linear-gradient(90deg, #FF6F00, #FF1493)"}}>
+      <Link className='text-2xl font-bold flex items-center' to={'/'}>
+        <i className='fas fa-store me-2'></i>ShopEase
+      </Link>
 
-          <ul className='flex-1 text-right'>
-                 {insideHome &&  <li className='list-none inline-block px-5' ><input onChange={(e)=>dispatch(searchProdut(e.target.value.toLowerCase()))}  type="text"  style={{width:'300px'}} className='rounded p-2 text-black' placeholder='search your products here'/></li>
+      {insideHome && (
+        <div className='hidden md:block ms-auto me-5'>
+          <input
+            onChange={(e) => dispatch(searchProdut(e.target.value.toLowerCase()))}
+            type='text'
+            className='rounded p-2 text-black w-72'
+            placeholder='Search your products here'
+          />
+        </div>
+      )}
 
-                   }
-
-                    <li  className='list-none inline-block px-5' ><Link to={'/wishlist'}><i className="fa-solid fa-heart text-red-600"></i>Wishlist <span className='bg-black text-white rounded p-1'>{userWishlist?.length}</span></Link></li>
-
-                    <li  className='list-none inline-block px-5' ><Link to={'/cart'}><i className="fa-solid fa-cart-plus text-green-600"></i>Cart <span className='bg-black text-white rounded p-1'>{userCart?.length}</span></Link></li>
-          </ul>
+      <ul className='flex items-center space-x-5 text-sm md:text-base'>
+        <li>
+          <Link to={'/wishlist'} className='flex items-center gap-1'>
+            <i className='fa-solid fa-heart text-red-600'></i> Wishlist
+            <span className='bg-black text-white rounded px-2 py-1 text-xs'>{userWishlist?.length}</span>
+          </Link>
+        </li>
+        <li>
+          <Link to={'/cart'} className='flex items-center gap-1'>
+            <i className='fa-solid fa-cart-plus text-green-600'></i> Cart
+            <span className='bg-black text-white rounded px-2 py-1 text-xs'>{userCart?.length}</span>
+          </Link>
+        </li>
+      </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
