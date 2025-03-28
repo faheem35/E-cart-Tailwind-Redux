@@ -27,6 +27,8 @@
 
 // export default Header
 
+
+
 // import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { Link } from 'react-router-dom';
@@ -84,7 +86,7 @@ const Header = ({ insideHome }) => {
   const userWishlist = useSelector((state) => state.wishlistReducer);
 
   return (
-    <nav className="w-full p-4 text-white flex items-center justify-between bg-gradient-to-r from-orange-500 to-pink-500">
+    <nav className="w-full p-4 text-white flex items-center justify-between " style={{background: "linear-gradient(90deg, #FF6F00, #FF1493)"}}>
       {/* Logo */}
       <Link className="text-xl md:text-2xl font-bold flex items-center flex-shrink-0" to={'/'}>
         <i className="fas fa-store mr-2"></i>ShopEase
