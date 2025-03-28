@@ -139,6 +139,7 @@ const View = () => {
       toast.error("Product already in your Wishlist!!!");
     } else {
       dispatch(addToWishlist(product));
+      toast.success("Product added to Wishlist");
     }
   };
 

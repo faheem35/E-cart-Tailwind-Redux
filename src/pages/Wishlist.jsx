@@ -16,23 +16,23 @@
 //    const handleCart=(product)=>{
 //     dispatch(removeItem(product.id))
 //        dispatch(addToCart(product))
-       
 
-   
+
+
 //        const existingProduct= userCart?.find(item=>item?.id==product.id)
 //        if(existingProduct){
-   
+
 //          alert("Product count is incrementing")
 //        }else{
 //         alert("Product added to Cart")
 //        }
-   
+
 //      }  
 
 //   return (
 //     <>
 //           <Header/>
-          
+
 //           <div style={{paddingTop:'100px'}} className='px-5'>
 //              {
 //               userWishlist?.length>0?
@@ -60,7 +60,7 @@
 //               }
 
 //     </div>
-              
+
 //                </>
 //         :
 //         <div className='flex flex-col justify-center items-center h-screen'>
@@ -70,10 +70,10 @@
 //              }
 
 //           </div>
-              
-          
+
+
 //     </>
-   
+
 //   )
 // }
 
@@ -104,7 +104,7 @@ const Wishlist = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen"> 
+    <div className="flex flex-col min-h-screen">
       <Header />
       <div className="pt-24 px-5 flex-grow">
         {userWishlist?.length > 0 ? (
@@ -117,7 +117,13 @@ const Wishlist = () => {
                   <div className="text-center mt-3">
                     <h3 className="text-xl font-bold">{product?.title}</h3>
                     <div className="flex justify-center gap-4 mt-3">
-                      <button onClick={() => dispatch(removeItem(product?.id))} className="text-xl text-red-600 hover:text-red-800 transition-all">
+                      <button
+                        onClick={() => {
+                          dispatch(removeItem(product?.id));
+                          toast.success("Item removed successfully!");
+                        }}
+                        className="text-xl text-red-600 hover:text-red-800 transition-all"
+                      >
                         <i className="fa-solid fa-heart-circle-xmark"></i>
                       </button>
                       <button onClick={() => handleCart(product)} className="text-xl text-green-700 hover:text-green-900 transition-all">
@@ -136,7 +142,7 @@ const Wishlist = () => {
           </div>
         )}
       </div>
-      <Toaster position="top-right"/>
+      <Toaster position="top-right" />
     </div>
   );
 };

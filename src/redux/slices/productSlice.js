@@ -7,6 +7,8 @@ export const fetchProducts= createAsyncThunk("products/fetchProducts", async ()=
           // console.log(result);
           sessionStorage.setItem("allproducts",JSON.stringify(result.data.products))
           
+          
+          
           return result.data.products
           
 })
