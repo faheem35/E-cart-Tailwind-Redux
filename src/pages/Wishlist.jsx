@@ -85,6 +85,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../redux/slices/wishlistSlice';
 import { addToCart } from '../redux/slices/cartSlice';
 import toast, { Toaster } from 'react-hot-toast';
+import empty_wishlist from '../assets/basket.gif'
 
 const Wishlist = () => {
   const userCart = useSelector(state => state.cartReducer);
@@ -137,7 +138,7 @@ const Wishlist = () => {
           </>
         ) : (
           <div className="flex flex-col justify-center items-center min-h-screen text-center">
-            <img className="w-60 md:w-96" src="https://www.adanione.com/~/media/Foundation/Adani/emptyImages/empty_cart.gif" alt="Empty wishlist" />
+            <img className="w-60 md:w-96" src={empty_wishlist} alt="Empty wishlist" />
             <h1 className="text-2xl sm:text-3xl text-red-600 mt-5">Your wishlist is empty!!!</h1>
           </div>
         )}

@@ -119,11 +119,12 @@
 
 
 import React, { useEffect, useState } from 'react';
-import Header from '../componnets/Header'; // Note: Check if 'componnets' is a typo; should be 'components'
+import Header from '../componnets/Header'; 
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrementQuantity, emptyCart, incrementQuantity, removeCartItem } from '../redux/slices/cartSlice';
 import toast, { Toaster } from 'react-hot-toast';
+import empty_cart from '../assets/basket.gif'
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -253,7 +254,7 @@ const Cart = () => {
         ) : (
           <div className="flex flex-col justify-center items-center min-h-screen text-center">
             <img
-              src="https://www.adanione.com/~/media/Foundation/Adani/emptyImages/empty_cart.gif"
+              src={empty_cart}
               alt="Empty Cart"
               className="w-60 md:w-96"
             />
